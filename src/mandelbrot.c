@@ -6,7 +6,7 @@
 /*   By: etakaham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:53 by etakaham          #+#    #+#             */
-/*   Updated: 2024/01/26 16:06:12 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/01/26 16:14:18 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,23 @@ static void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 	return ;
+}
+
+int	hanle_key_press(int keycode, t_data *img)
+{
+	if (keycode == 65307)
+	{
+		mlx_destroy_window(img->mlx, img->mlx_win);
+		exit(0);
+	}
+	return (0);
+}
+
+int	close_window(int keycode, t_data *img)
+{
+	(void)keycode;
+	(void)img;
+	exit(0);
 }
 
 int	mandelbrot(int n, double *comp)
@@ -95,6 +112,8 @@ void	plot_mandelbrot()
 	img.img = mlx_new_image(img.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	drow_mandelbrot(&img, 1.0);
+	mlx_hook(img.mlx_win, 2, 1L<<0, hanle_key_press, &img);
+	mlx_hook(img.mlx_win, 17, 0, close_window, &img);
 	mlx_loop(img.mlx);
 
 	return ;
