@@ -6,7 +6,7 @@
 /*   By: etakaham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/01/30 14:53:38 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/01/30 18:30:33 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int	hanle_key_press(int keycode, t_data *img);
 int	close_window(int keycode, t_data *img);
 int	mouse_up(int keycode, t_data *img);
-int	mouse_down(int keycode, t_data *img);
+int	mouse_down(int keycode, int x, int y, t_data *img);
 
 /*main*/
 void	drow_mandelbrot(t_data *img, double magnification_rate);

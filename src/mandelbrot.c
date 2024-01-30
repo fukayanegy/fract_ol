@@ -6,7 +6,7 @@
 /*   By: etakaham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:53 by etakaham          #+#    #+#             */
-/*   Updated: 2024/01/30 14:51:27 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/01/30 18:26:25 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,12 @@ void	plot_mandelbrot()
 	img.img = mlx_new_image(img.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	drow_mandelbrot(&img, 1.0);
-	mlx_hook(img.mlx_win, 2, 1L<<0, hanle_key_press, &img);
-	mlx_hook(img.mlx_win, 17, 0, close_window, &img);
-	mlx_mouse_hook(img.mlx_win, mouse_down, &img);
+
+	mlx_hook(img.mlx_win,  2, (1L <<  0), hanle_key_press, &img);
+	mlx_hook(img.mlx_win,  4, (1L <<  2), mouse_down,      &img);
+	// mlx_hook(img.mlx_win,  5, (1L <<  2), mouse_up,        &img);
+	mlx_hook(img.mlx_win, 17, (1L << 16), close_window,    &img);
+
 	mlx_loop(img.mlx);
 
 	return ;
