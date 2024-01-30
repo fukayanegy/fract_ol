@@ -6,7 +6,7 @@
 #    By: etakaham <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 17:33:21 by etakaham          #+#    #+#              #
-#    Updated: 2024/01/20 16:37:43 by etakaham         ###   ########.fr        #
+#    Updated: 2024/01/30 14:02:37 by etakaham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 RE			= rm -f
 MAIN		= src/main.c
-SRCS		= src/mandelbrot.c src/julia.c src/ft_atof.c src/complex_operations.c
+SRCS		= src/mandelbrot.c src/julia.c src/ft_atof.c src/complex_operations.c src/utils.c
 OBJS		= $(SRCS:.c=.o)
 OBJ_DIR		= ./obj
 

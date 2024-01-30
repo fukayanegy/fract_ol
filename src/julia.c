@@ -6,7 +6,7 @@
 /*   By: etakaham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:46 by etakaham          #+#    #+#             */
-/*   Updated: 2024/01/26 16:27:44 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/01/26 16:37:13 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void	julia(void)
 	return ;
 }
 
-void	drow_julia()
+void	drow_julia(t_data *img, int magnification_rate)
 {
+	(void)img;
+	(void)magnification_rate;
 	return ;
 }
 

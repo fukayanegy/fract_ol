@@ -6,37 +6,11 @@
 /*   By: etakaham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:53 by etakaham          #+#    #+#             */
-/*   Updated: 2024/01/26 16:14:18 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:51:27 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/fract_ol.h"
-
-static void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-	return ;
-}
-
-int	hanle_key_press(int keycode, t_data *img)
-{
-	if (keycode == 65307)
-	{
-		mlx_destroy_window(img->mlx, img->mlx_win);
-		exit(0);
-	}
-	return (0);
-}
-
-int	close_window(int keycode, t_data *img)
-{
-	(void)keycode;
-	(void)img;
-	exit(0);
-}
 
 int	mandelbrot(int n, double *comp)
 {
@@ -68,17 +42,16 @@ void	drow_mandelbrot(t_data *img, double magnification_rate)
 	int	repeat = 50;
 	int	i, j, k;
 	t_complex	c;
-	(void)img;
 	(void)magnification_rate;
 
 	i = 0;
 	while (i < WIDTH)
 	{
-		c.r = (double)i * 4 / WIDTH - 4 / 2;
+		c.r = ((double)i * 4 / WIDTH - 4 / 2) * magnification_rate;
 		j = 0;
 		while (j < HEIGHT)
 		{
-			c.i = (double)j * 4 / HEIGHT - 4 / 2;
+			c.i = ((double)j * 4 / HEIGHT - 4 / 2) * magnification_rate;
 			double a = 0.0, b = 0.0;
 			double _a, _b;
 			k = 0;
@@ -114,6 +87,7 @@ void	plot_mandelbrot()
 	drow_mandelbrot(&img, 1.0);
 	mlx_hook(img.mlx_win, 2, 1L<<0, hanle_key_press, &img);
 	mlx_hook(img.mlx_win, 17, 0, close_window, &img);
+	mlx_mouse_hook(img.mlx_win, mouse_down, &img);
 	mlx_loop(img.mlx);
 
 	return ;
