@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etakaham <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:53 by etakaham          #+#    #+#             */
-/*   Updated: 2024/01/30 18:26:25 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:21:15 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,19 @@ void	drow_mandelbrot(t_data *img, double magnification_rate)
 		j = 0;
 		while (j < HEIGHT)
 		{
+			my_mlx_pixel_put(img, i, j, 0x00000000);
+			j += 1;
+		}
+		i += 1;
+	}
+
+	i = 0;
+	while (i < WIDTH)
+	{
+		c.r = ((double)i * 4 / WIDTH - 4 / 2) * magnification_rate;
+		j = 0;
+		while (j < HEIGHT)
+		{
 			c.i = ((double)j * 4 / HEIGHT - 4 / 2) * magnification_rate;
 			double a = 0.0, b = 0.0;
 			double _a, _b;
@@ -61,7 +74,7 @@ void	drow_mandelbrot(t_data *img, double magnification_rate)
 				_b = 2 * a * b + c.i;
 				a = _a;
 				b = _b;
-				if (a * a + b * b > 4)
+				if (a * a + b * b >= 4)
 				{
 					my_mlx_pixel_put(img, i, j, 0x00FF0000);
 					break;
@@ -84,12 +97,12 @@ void	plot_mandelbrot()
 	img.mlx_win = mlx_new_window(img.mlx, WIDTH, HEIGHT, "mandelbrot");
 	img.img = mlx_new_image(img.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	drow_mandelbrot(&img, 1.0);
+	img.magnification_rate = 1.0;
+	drow_mandelbrot(&img, img.magnification_rate);
 
 	mlx_hook(img.mlx_win,  2, (1L <<  0), hanle_key_press, &img);
-	mlx_hook(img.mlx_win,  4, (1L <<  2), mouse_down,      &img);
-	// mlx_hook(img.mlx_win,  5, (1L <<  2), mouse_up,        &img);
 	mlx_hook(img.mlx_win, 17, (1L << 16), close_window,    &img);
+	mlx_hook(img.mlx_win,  4, (1L <<  2), mouse_down,      &img);
 
 	mlx_loop(img.mlx);
 

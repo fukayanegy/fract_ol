@@ -6,7 +6,7 @@
 /*   By: etakaham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:48 by etakaham          #+#    #+#             */
-/*   Updated: 2024/01/20 15:33:45 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:01:55 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct	s_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	double	magnification_rate;
 }				t_data;
 
 /*
