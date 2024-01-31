@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:46 by etakaham          #+#    #+#             */
-/*   Updated: 2024/01/31 16:25:30 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:33:43 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,23 @@ void	julia(void)
 
 void	drow_julia(t_data *img, int magnification_rate)
 {
+	int	i, j;
+
 	(void)img;
 	(void)magnification_rate;
+
+	i = 0;
+	while (i < WIDTH)
+	{
+		j = 0;
+		while (j < HEIGHT)
+		{
+			my_mlx_pixel_put(img, i, j, 0x000000FF);
+			j++;
+		}
+		i++;
+	}
+	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
 	return ;
 }
 

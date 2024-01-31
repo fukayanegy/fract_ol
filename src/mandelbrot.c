@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:53 by etakaham          #+#    #+#             */
-/*   Updated: 2024/01/31 16:21:15 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:32:57 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	drow_mandelbrot(t_data *img, double magnification_rate)
 	int	repeat = 50;
 	int	i, j, k;
 	t_complex	c;
-	(void)magnification_rate;
 
 	i = 0;
 	while (i < WIDTH)
@@ -52,9 +51,9 @@ void	drow_mandelbrot(t_data *img, double magnification_rate)
 		while (j < HEIGHT)
 		{
 			my_mlx_pixel_put(img, i, j, 0x00000000);
-			j += 1;
+			j++;
 		}
-		i += 1;
+		i++;
 	}
 
 	i = 0;
@@ -81,9 +80,9 @@ void	drow_mandelbrot(t_data *img, double magnification_rate)
 				}
 				k++;
 			}
-			j += 1;
+			j++;
 		}
-		i += 1;
+		i++;
 	}
 	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
 	return ;
