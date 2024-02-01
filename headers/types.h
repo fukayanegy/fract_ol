@@ -3,27 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etakaham <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:48 by etakaham          #+#    #+#             */
-/*   Updated: 2024/01/31 16:01:55 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:55:29 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPES_H
 # define TYPES_H
-
-typedef struct	s_data
-{
-	void	*mlx;
-	void	*mlx_win;
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	double	magnification_rate;
-}				t_data;
 
 /*
  * r : real part
@@ -31,8 +19,29 @@ typedef struct	s_data
  */
 typedef struct	s_complex
 {
-	double	r;
-	double	i;
+	double		r;
+	double		i;
 }				t_complex;
+
+typedef struct		s_color
+{
+	unsigned char	red;
+	unsigned char	green;
+	unsigned char	blue;
+}					t_color;
+
+typedef struct	s_data
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	void		*img_ptr;
+	char		*mlx_data_addr;
+	int			bits_per_pixel;
+	int			size_line;
+	int			endian;
+	bool		is_mandelbrot;
+	double		magnification_rate;
+	t_complex	c;
+}				t_data;
 
 #endif

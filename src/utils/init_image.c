@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   init_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 15:01:47 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/01 16:59:13 by etakaham         ###   ########.fr       */
+/*   Created: 2024/02/01 17:41:49 by etakaham          #+#    #+#             */
+/*   Updated: 2024/02/01 17:57:08 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+# include "../../headers/fract_ol.h"
 
-# define HEIGHT 1080.0
-# define WIDTH 1080.0
-# define WIN_NAME "fract_ol"
+void	init_image(t_data *img)
+{
+	int	i;
+	int	j;
 
-#endif
+	i = 0;
+	while (i < WIDTH)
+	{
+		j = 0;
+		while (j < HEIGHT)
+		{
+			my_mlx_pixel_put(img, i, j, 0x00000000);
+			j++;
+		}
+		i++;
+	}
+	mlx_put_image_to_window(img->mlx_ptr, img->win_ptr, img->img_ptr, 0, 0);
+	return ;
+}

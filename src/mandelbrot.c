@@ -6,104 +6,78 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:53 by etakaham          #+#    #+#             */
-/*   Updated: 2024/01/31 16:32:57 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:29:24 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/fract_ol.h"
 
-int	mandelbrot(int n, double *comp)
+void	mandelbrot(t_complex *c, t_data *img, int i, int j)
 {
-	int			i;
-	t_complex	*c;
+	int	k;
+	int	repeat = 50;
 	t_complex	*z;
 
-	c = malloc(sizeof(t_complex));
-	z = malloc(sizeof(t_complex));
-
-	c->r = comp[0];
-	c->i = comp[1];
-	z->r = 0;
-	z->i = 0;
-
-	i = 0;
-	while (i < n)
+	z = init_complex(0.0, 0.0);
+	k = 0;
+	while (k < repeat)
 	{
-		z = comp_add(comp_malt(z, z), c);
-		if (comp_abs(z) >= 2)
-			return (i);
-		i++;
+		z = comp_add(comp_square(z), c);
+		if (z->r * z->r + z->i * z->i > 4)
+		{
+			my_mlx_pixel_put(img, i, j, 0x00000000);
+			break;
+		}
+		k++;
 	}
-	return n;
 }
 
 void	drow_mandelbrot(t_data *img, double magnification_rate)
 {
-	int	repeat = 50;
-	int	i, j, k;
-	t_complex	c;
+	int	i, j;
+	t_complex	*c;
 
 	i = 0;
 	while (i < WIDTH)
 	{
-		c.r = ((double)i * 4 / WIDTH - 4 / 2) * magnification_rate;
 		j = 0;
 		while (j < HEIGHT)
 		{
-			my_mlx_pixel_put(img, i, j, 0x00000000);
+			my_mlx_pixel_put(img, i, j, 0x00FFFFFF);
 			j++;
 		}
 		i++;
 	}
 
+	c = init_complex(0.0, 0.0);
+
 	i = 0;
 	while (i < WIDTH)
 	{
-		c.r = ((double)i * 4 / WIDTH - 4 / 2) * magnification_rate;
+		c->r = ((double)i * 4 / WIDTH - 4 / 2) * magnification_rate;
 		j = 0;
 		while (j < HEIGHT)
 		{
-			c.i = ((double)j * 4 / HEIGHT - 4 / 2) * magnification_rate;
-			double a = 0.0, b = 0.0;
-			double _a, _b;
-			k = 0;
-			while (k < repeat)
-			{
-				_a = a * a - b * b + c.r;
-				_b = 2 * a * b + c.i;
-				a = _a;
-				b = _b;
-				if (a * a + b * b >= 4)
-				{
-					my_mlx_pixel_put(img, i, j, 0x00FF0000);
-					break;
-				}
-				k++;
-			}
+			c->i = ((double)j * 4 / HEIGHT - 4 / 2) * magnification_rate;
+			mandelbrot(c, img, i, j);
 			j++;
 		}
 		i++;
 	}
-	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
+	mlx_put_image_to_window(img->mlx_ptr, img->win_ptr, img->img_ptr, 0, 0);
 	return ;
 }
 
 void	plot_mandelbrot()
 {
-	t_data	img;
+	t_data	*img;
 
-	img.mlx = mlx_init();
-	img.mlx_win = mlx_new_window(img.mlx, WIDTH, HEIGHT, "mandelbrot");
-	img.img = mlx_new_image(img.mlx, WIDTH, HEIGHT);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	img.magnification_rate = 1.0;
-	drow_mandelbrot(&img, img.magnification_rate);
-
-	mlx_hook(img.mlx_win,  2, (1L <<  0), hanle_key_press, &img);
-	mlx_hook(img.mlx_win, 17, (1L << 16), close_window,    &img);
-	mlx_hook(img.mlx_win,  4, (1L <<  2), mouse_down,      &img);
-
-	mlx_loop(img.mlx);
-
+	img = init_mlx_data(true);
+	img->magnification_rate = 1.0;
+	drow_mandelbrot(img, img->magnification_rate);
+	mlx_hook(img->win_ptr,  2, (1L <<  0), hanle_key_press, img);
+	mlx_hook(img->win_ptr, 17, (1L << 16), close_window,    img);
+	mlx_hook(img->win_ptr,  4, (1L <<  2), mouse_down,      img);
+	mlx_loop(img->mlx_ptr);
 	return ;
 }

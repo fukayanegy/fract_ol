@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etakaham <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 17:33:21 by etakaham          #+#    #+#              #
-#    Updated: 2024/01/30 14:02:37 by etakaham         ###   ########.fr        #
+#    Updated: 2024/02/01 17:46:31 by etakaham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 RE			= rm -f
 MAIN		= src/main.c
-SRCS		= src/mandelbrot.c src/julia.c src/ft_atof.c src/complex_operations.c src/utils.c
+SRCS		= src/mandelbrot.c src/julia.c src/ft_atof.c src/complex_operations.c src/utils.c src/utils/init_mlx_data.c src/utils/init_complex.c src/utils/init_image.c
 OBJS		= $(SRCS:.c=.o)
 OBJ_DIR		= ./obj
 

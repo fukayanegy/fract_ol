@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   init_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 15:01:47 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/01 16:59:13 by etakaham         ###   ########.fr       */
+/*   Created: 2024/02/01 17:34:10 by etakaham          #+#    #+#             */
+/*   Updated: 2024/02/01 17:38:01 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+# include "../../headers/fract_ol.h"
 
-# define HEIGHT 1080.0
-# define WIDTH 1080.0
-# define WIN_NAME "fract_ol"
+void	*init_complex(double real_part, double imaginary_part)
+{
+	t_complex	*comp;
 
-#endif
+	if (!(comp = malloc(sizeof(*comp))))
+		exit(0);
+	comp->r = real_part;
+	comp->i = imaginary_part;
+	return (comp);
+}

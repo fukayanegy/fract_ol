@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   color_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 15:01:47 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/01 16:59:13 by etakaham         ###   ########.fr       */
+/*   Created: 2024/02/01 16:11:45 by etakaham          #+#    #+#             */
+/*   Updated: 2024/02/01 16:12:20 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+# include "../headers/fract_ol.h"
 
-# define HEIGHT 1080.0
-# define WIDTH 1080.0
-# define WIN_NAME "fract_ol"
-
-#endif
+int	main(void)
+{
+	t_color rgb;
+	rgb.red   = 255;
+	rgb.green = 255;
+	rgb.blue  = 255;
+	unsigned int result = ft_rgb(&rgb);
+	printf("RGB: (%u, %u, %u) -> 0x%08X\n", rgb.red, rgb.green, rgb.blue, result);
+	return (0);
+}
