@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:46 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/01 16:54:04 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/10 17:59:02 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	julia(void)
 	return ;
 }
 
-void	drow_julia(t_data *img, t_complex c, int magnification_rate)
+void	drow_julia(t_data *img, t_complex *c, int magnification_rate)
 {
 	double	xS  = -1.5;
 	double	xE  =  1.5;
 	double	yS  = -1.5;
 	double	yE  =  1.5;
-	double	Cr  = -0.3;
-	double	Ci  = -0.63;
+	double	Cr  = c->r;
+	double	Ci  = c->i;
 	double	imax= 400;
 	double	E   = 4.0;
 	double	dx, dy;
@@ -77,13 +77,10 @@ void	drow_julia(t_data *img, t_complex c, int magnification_rate)
 	(void)c;
 }
 
-void	plot_julia()
+void	plot_julia(t_complex *c)
 {
 	t_data	img;
-	t_complex	c;
 
-	c.r = -0.7;
-	c.i = 0.27;
 	img.mlx_ptr = mlx_init();
 	img.win_ptr = mlx_new_window(img.mlx_ptr, WIDTH, HEIGHT, "julia");
 	img.img_ptr = mlx_new_image(img.mlx_ptr, WIDTH, HEIGHT);
