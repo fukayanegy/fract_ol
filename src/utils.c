@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:01:06 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/12 18:56:14 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/12 21:13:29 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	return ;
 }
 
-int	hanle_key_press(int keycode, t_data *img)
+int	esc_key_hook(int keycode, t_data *img)
 {
 	if (keycode == 65307)
 	{
@@ -32,14 +32,14 @@ int	hanle_key_press(int keycode, t_data *img)
 	return (0);
 }
 
-int	close_window(int keycode, t_data *img)
+int	close_window_hook(int keycode, t_data *img)
 {
 	(void)keycode;
 	(void)img;
 	exit(0);
 }
 
-int	mouse_down(int keycode, int x, int y, t_data *img)
+int	mouse_hook(int keycode, int x, int y, t_data *img)
 {
 	(void)x;
 	(void)y;

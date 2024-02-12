@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:48 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/12 18:53:28 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/12 21:18:24 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@
  * r : real part
  * i : imaginary part
  */
-typedef struct	s_complex
+typedef struct s_complex
 {
 	double		r;
 	double		i;
 }				t_complex;
 
-typedef struct		s_color
+typedef struct s_color
 {
 	unsigned char	red;
 	unsigned char	green;
 	unsigned char	blue;
 }					t_color;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
