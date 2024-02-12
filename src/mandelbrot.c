@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:53 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/12 19:46:10 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/12 20:01:10 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	mandelbrot(t_complex *c, t_data *img, int i, int j)
 
 void	drow_mandelbrot(t_data *img, double magnification_rate)
 {
-	int	i, j;
+	int			i;
+	int			j;
 	t_complex	*c;
 
 	c = init_complex(0.0, 0.0);
