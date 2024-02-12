@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:48 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/01 17:55:29 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:53:28 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct	s_data
 	int			endian;
 	bool		is_mandelbrot;
 	double		magnification_rate;
-	t_complex	c;
+	t_complex	*c;
 }				t_data;
 
 #endif

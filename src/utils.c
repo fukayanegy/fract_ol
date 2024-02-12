@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:01:06 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/10 20:12:09 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:56:14 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,13 @@ int	mouse_down(int keycode, int x, int y, t_data *img)
 {
 	(void)x;
 	(void)y;
-	t_complex *c = init_complex(0.1, 0.1);
 	if (keycode == 4)
 	{
 		img->magnification_rate *= 0.9;
 		if (img->is_mandelbrot == true)
 			drow_mandelbrot(img, img->magnification_rate);
 		else
-			drow_julia(img, c, img->magnification_rate);
+			drow_julia(img, img->c, img->magnification_rate);
 	}
 	if (keycode == 5)
 	{
@@ -58,9 +57,8 @@ int	mouse_down(int keycode, int x, int y, t_data *img)
 		if (img->is_mandelbrot == true)
 			drow_mandelbrot(img, img->magnification_rate);
 		else
-			drow_julia(img, c, img->magnification_rate);
+			drow_julia(img, img->c, img->magnification_rate);
 	}
-	free(c);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 #    By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 17:33:21 by etakaham          #+#    #+#              #
-#    Updated: 2024/02/10 19:25:27 by etakaham         ###   ########.fr        #
+#    Updated: 2024/02/12 19:29:49 by etakaham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS		= -Wall -Wextra -Werror
 SANITIZE	= -fsanitize=address -g
 RE			= rm -f
 MAIN		= src/main.c
-SRCS		= src/mandelbrot.c src/julia.c src/ft_atof.c src/complex_operations.c src/utils.c src/utils/init_mlx_data.c src/utils/init_complex.c src/utils/init_image.c
+SRCS		= src/mandelbrot.c src/julia.c src/ft_atof.c src/complex_operations.c src/utils.c src/utils/init_mlx_data.c src/utils/init_complex.c src/utils/init_image.c src/utils/init_color.c
 OBJS		= $(SRCS:.c=.o)
 OBJ_DIR		= ./obj
 

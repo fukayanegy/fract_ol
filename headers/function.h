@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/10 21:43:23 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:29:23 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ int				mouse_down(int keycode, int x, int y, t_data *img);
 unsigned int	ft_rgb(t_color *color);
 void			*init_mlx_data(bool is_mandelbrot);
 void			*init_complex(double real_part, double imaginary_part);
+void			*init_color(unsigned char red,
+							unsigned char green,
+							unsigned char blue);
 void			init_image(t_data *img);
 
 
