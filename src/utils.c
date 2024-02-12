@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:01:06 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/12 21:13:29 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:19:32 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ int	mouse_hook(int keycode, int x, int y, t_data *img)
 		if (img->is_mandelbrot == true)
 			drow_mandelbrot(img, img->magnification_rate);
 		else
+		{
+			printf("mouse down.\n");
 			drow_julia(img, img->c, img->magnification_rate);
+		}
 	}
 	if (keycode == 5)
 	{
@@ -57,7 +60,10 @@ int	mouse_hook(int keycode, int x, int y, t_data *img)
 		if (img->is_mandelbrot == true)
 			drow_mandelbrot(img, img->magnification_rate);
 		else
+		{
+			printf("mouse up.\n");
 			drow_julia(img, img->c, img->magnification_rate);
+		}
 	}
 	return (0);
 }

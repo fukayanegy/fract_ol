@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:46 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/12 21:10:04 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:22:50 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,33 @@ void	drow_julia(t_data *img, t_complex *c, int magnification_rate)
 	int			i;
 	int			j;
 	int			k;
-	double		x0,y0;
-	t_complex	*z;
-	t_complex	*tmp;
+	int			nc;
+	double		dx, dy;
+	t_complex	*start;       // xS, yS
+	t_complex	*end;         // xE, yE
+	t_complex	*pixel_count; // x0, y0
+	t_complex	*z;           // x , y
+	t_complex	*tmp;         // xN, yN
 	t_color		*result;
 
+	start = init_complex(-1.5 * magnification_rate, -1.5 * magnification_rate);
+	end = init_complex(1.5 * magnification_rate, 1.5 * magnification_rate);
+	pixel_count = init_complex(0.0, 0.0);
 	z = init_complex(0.0, 0.0);
 	tmp = init_complex(0.0, 0.0);
-	y0 = Y_START;
+	dx = (end->r - start->r) / WIDTH;
+	dy = (end->i - start->i) / HEIGHT;
+	nc = JULIA_REPEAT / 256;
+	pixel_count->i = start->i;
 	j=WIDTH;
 	while (j > 0)
 	{
-		x0 = X_START;
+		pixel_count->r = start->r;
 		i = 0;
 		while (i < HEIGHT)
 		{
-			z->r = x0;
-			z->i = y0;
+			z->r = pixel_count->r;
+			z->i = pixel_count->i;
 			k = 0;
 			while (k < JULIA_REPEAT)
 			{
@@ -72,13 +82,16 @@ void	drow_julia(t_data *img, t_complex *c, int magnification_rate)
 			result = init_color(k, k, k);
 			my_mlx_pixel_put(img, i, j, ft_rgb(result));
 			free(result);
-			x0 += DX;
+			pixel_count->r += dx;
 			i++;
 		}
-		y0 += DY;
+		pixel_count->i += dy;
 		j--;
 	}
 	mlx_put_image_to_window(img->mlx_ptr, img->win_ptr, img->img_ptr, 0, 0);
+	free(start);
+	free(end);
+	free(pixel_count);
 	free(z);
 	free(tmp);
 	return ;
