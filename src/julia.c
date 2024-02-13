@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:46 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/12 22:22:50 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:58:14 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	julia(void)
 	return (result) ;
 }
 
-void	drow_julia(t_data *img, t_complex *c, int magnification_rate)
+void	drow_julia(t_data *img, t_complex *c, double magnification_rate)
 {
 	int			i;
 	int			j;
@@ -50,8 +50,8 @@ void	drow_julia(t_data *img, t_complex *c, int magnification_rate)
 	t_complex	*tmp;         // xN, yN
 	t_color		*result;
 
-	start = init_complex(-1.5 * magnification_rate, -1.5 * magnification_rate);
-	end = init_complex(1.5 * magnification_rate, 1.5 * magnification_rate);
+	start = init_complex((-1.5 * magnification_rate), (-1.5 * magnification_rate));
+	end = init_complex((1.5 * magnification_rate), (1.5 * magnification_rate));
 	pixel_count = init_complex(0.0, 0.0);
 	z = init_complex(0.0, 0.0);
 	tmp = init_complex(0.0, 0.0);
@@ -59,7 +59,7 @@ void	drow_julia(t_data *img, t_complex *c, int magnification_rate)
 	dy = (end->i - start->i) / HEIGHT;
 	nc = JULIA_REPEAT / 256;
 	pixel_count->i = start->i;
-	j=WIDTH;
+	j = WIDTH;
 	while (j > 0)
 	{
 		pixel_count->r = start->r;

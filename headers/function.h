@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/12 21:23:25 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:55:24 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void			plot_mandelbrot(void);
 
 /*julia*/
 int				julia(void);
-void			drow_julia(t_data *img, t_complex *c, int magnification_rate);
+void			drow_julia(t_data *img, t_complex *c, double magnification_rate);
 void			plot_julia(t_complex *c);
 
 double			ft_atof(const char *str);
