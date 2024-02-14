@@ -6,7 +6,7 @@
 #    By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 17:33:21 by etakaham          #+#    #+#              #
-#    Updated: 2024/02/14 17:49:57 by etakaham         ###   ########.fr        #
+#    Updated: 2024/02/14 18:06:41 by etakaham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ $(NAME): $(MAIN) $(OBJS)
 
 clean:
 	@make -C $(LIBFT_DIR) fclean
+	@make -C $(MLX_DIR) clean
 	@$(RE) $(OBJS)
 	@echo "Deleted object files."
 
