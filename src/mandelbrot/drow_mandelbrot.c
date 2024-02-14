@@ -6,20 +6,20 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:17:08 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 15:17:48 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:31:28 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/fract_ol.h"
 
-static void	mandelbrot(t_complex *c, t_data *img, int i, int j)
+static void	mandelbrot(t_comp *c, t_data *img, int i, int j)
 {
-	int			k;
-	t_complex	*z;
-	t_complex	*tmp;
+	int		k;
+	t_comp	*z;
+	t_comp	*tmp;
 
-	z = init_complex(0.0, 0.0);
-	tmp = init_complex(0.0, 0.0);
+	z = init_comp(0.0, 0.0);
+	tmp = init_comp(0.0, 0.0);
 	k = 0;
 	while (k < MANDELBROT_REPEAT)
 	{
@@ -38,11 +38,11 @@ static void	mandelbrot(t_complex *c, t_data *img, int i, int j)
 
 void	drow_mandelbrot(t_data *img, double magnification_rate)
 {
-	int			i;
-	int			j;
-	t_complex	*c;
+	int		i;
+	int		j;
+	t_comp	*c;
 
-	c = init_complex(0.0, 0.0);
+	c = init_comp(0.0, 0.0);
 	i = 0;
 	while (i < WIDTH)
 	{

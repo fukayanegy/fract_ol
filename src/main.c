@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:25 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 16:52:47 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:32:03 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static int	check_correct_args(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_complex	*c;
-	int			args_type;
+	t_comp	*c;
+	int		args_type;
 
 	args_type = check_correct_args(argc, argv);
 	if (args_type == 1)
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 	}
 	else if (args_type == 0)
 	{
-		c = init_complex(ft_atof(argv[2]), ft_atof(argv[3]));
+		c = init_comp(ft_atof(argv[2]), ft_atof(argv[3]));
 		plot_julia(c);
 	}
 	else
@@ -48,12 +48,4 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	return (0);
-}
-
-#include <libc.h>
-
-__attribute__((destructor))
-static void destructor()
-{
-    system("leaks -q fract_al");
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_complex.c                                     :+:      :+:    :+:   */
+/*   init_comp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,9 +12,9 @@
 
 #include "../../headers/fract_ol.h"
 
-void	*init_complex(double real_part, double imaginary_part)
+void	*init_comp(double real_part, double imaginary_part)
 {
-	t_complex	*comp;
+	t_comp	*comp;
 
 	comp = malloc(sizeof(*comp));
 	if (!comp)

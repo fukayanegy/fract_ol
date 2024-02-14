@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 17:10:37 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:20:25 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void			plot_mandelbrot(void);
 
 /*julia*/
 void			drow_julia(t_data *img);
-void			plot_julia(t_complex *c);
+void			plot_julia(t_comp *c);
 
 double			ft_atof(const char *str);
 
-void			comp_add(t_complex *a, t_complex *b, t_complex *c);
-void			comp_malt(t_complex *a, t_complex *b, t_complex *c);
-void			comp_square(t_complex *comp, t_complex *squared_comp);
+void			comp_add(t_comp *a, t_comp *b, t_comp *c);
+void			comp_malt(t_comp *a, t_comp *b, t_comp *c);
+void			comp_square(t_comp *comp, t_comp *squared_comp);
 
 /*utils*/
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -38,7 +38,7 @@ int				mouse_hook(int keycode, int x, int y, t_data *img);
 
 // init types
 void			*init_mlx_data(bool is_mandelbrot);
-void			*init_complex(double real_part, double imaginary_part);
+void			*init_comp(double real_part, double imaginary_part);
 void			*init_color(unsigned char red,
 				unsigned char green, unsigned char blue);
 void			init_image(t_data *img);

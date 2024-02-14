@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:48 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 17:07:50 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:20:25 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_complex
 {
 	double		r;
 	double		i;
-}				t_complex;
+}				t_comp;
 
 typedef struct s_color
 {
@@ -41,7 +41,7 @@ typedef struct s_data
 	int			endian;
 	bool		is_mandelbrot;
 	double		zoom_rate;
-	t_complex	*c;
+	t_comp	*c;
 }				t_data;
 
 #endif
