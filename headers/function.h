@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 17:20:25 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:44:25 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ int				mouse_hook(int keycode, int x, int y, t_data *img);
 // init types
 void			*init_mlx_data(bool is_mandelbrot);
 void			*init_comp(double real_part, double imaginary_part);
-void			*init_color(unsigned char red,
-				unsigned char green, unsigned char blue);
+void			*init_color(unsigned char r, unsigned char g, unsigned char b);
 void			init_image(t_data *img);
 
 #endif

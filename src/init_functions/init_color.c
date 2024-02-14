@@ -6,21 +6,21 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:24:38 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 15:11:17 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:44:48 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/fract_ol.h"
 
-void	*init_color(unsigned char red, unsigned char green, unsigned char blue)
+void	*init_color(unsigned char r, unsigned char g, unsigned char b)
 {
 	t_color	*color;
 
 	color = malloc(sizeof(*color));
 	if (!color)
 		exit(0);
-	color->red = red;
-	color->green = green;
-	color->blue = blue;
+	color->red = r;
+	color->green = g;
+	color->blue = b;
 	return (color);
 }
