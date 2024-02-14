@@ -6,7 +6,7 @@
 #    By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 17:33:21 by etakaham          #+#    #+#              #
-#    Updated: 2024/02/12 19:29:49 by etakaham         ###   ########.fr        #
+#    Updated: 2024/02/14 12:33:32 by etakaham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,12 +36,6 @@ $(NAME): $(MAIN) $(OBJS)
 	@make -C $(LIBFT_DIR)
 	@make -C $(MLX_DIR)
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT) $(MLX_COM) $(MLX) $^ -o $@
-	@echo "Compilation is complete."
-
-sani: $(MAIN) $(OBJS)
-	@make -C $(LIBFT_DIR)
-	@make -C $(MLX_DIR)
-	@$(CC) $(CFLAGS) $(SANITIZE) $(MLX_FLAGS) $(LIBFT) $(MLX_COM) $(MLX) $^ -o $@
 	@echo "Compilation is complete."
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/13 12:55:24 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:27:56 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define FUNCTION_H
 
 /*mandelbrot*/
+void			drow_mandelbrot(t_data *img, double magnification_rate);
 void			plot_mandelbrot(void);
 
 /*julia*/
-int				julia(void);
+t_color			*julia(t_complex *c, t_complex *z);
 void			drow_julia(t_data *img, t_complex *c, double magnification_rate);
 void			plot_julia(t_complex *c);
 
@@ -42,9 +43,5 @@ void			*init_complex(double real_part, double imaginary_part);
 void			*init_color(unsigned char red,
 				unsigned char green, unsigned char blue);
 void			init_image(t_data *img);
-
-/*main*/
-void			drow_mandelbrot(t_data *img, double magnification_rate);
-void			plot_mandelbrot(void);
 
 #endif

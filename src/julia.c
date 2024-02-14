@@ -6,33 +6,32 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:46 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/13 12:58:14 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:34:26 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/fract_ol.h"
 
-int	julia(void)
+t_color	*julia(t_complex *c, t_complex *z)
 {
-	int	result;
-	result = 0;
-	/*
-	int	x;
-	int	y;
-	int	xN;
-	int	yN;
+	int			k;
+	t_color		*result;
+	t_complex	*tmp;
 
-	while (result < JULIA_REPEAT)
+	tmp = init_complex(0.0, 0.0);
+	k = 0;
+	while (k < JULIA_REPEAT)
 	{
-		xN = x * x - y * y + c->r;
-		yN = 2 * x * y + c->i;
-		if (xN * xN + yN * yN > E)
+		comp_square(z, tmp);
+		comp_add(tmp, c, z);
+		if (z->r * z->r + z->i * z->i > E)
 			break ;
-		result++;
+		k++;
 	}
-	if (result > 255)
-		return (255);
-	*/
+	if (k > 255)
+		k = 255;
+	result = init_color(k, k, k);
+	free(tmp);
 	return (result) ;
 }
 
@@ -40,24 +39,19 @@ void	drow_julia(t_data *img, t_complex *c, double magnification_rate)
 {
 	int			i;
 	int			j;
-	int			k;
-	int			nc;
 	double		dx, dy;
-	t_complex	*start;       // xS, yS
-	t_complex	*end;         // xE, yE
-	t_complex	*pixel_count; // x0, y0
-	t_complex	*z;           // x , y
-	t_complex	*tmp;         // xN, yN
+	t_complex	*start;
+	t_complex	*end;
+	t_complex	*pixel_count;
+	t_complex	*z;
 	t_color		*result;
 
 	start = init_complex((-1.5 * magnification_rate), (-1.5 * magnification_rate));
 	end = init_complex((1.5 * magnification_rate), (1.5 * magnification_rate));
 	pixel_count = init_complex(0.0, 0.0);
 	z = init_complex(0.0, 0.0);
-	tmp = init_complex(0.0, 0.0);
 	dx = (end->r - start->r) / WIDTH;
 	dy = (end->i - start->i) / HEIGHT;
-	nc = JULIA_REPEAT / 256;
 	pixel_count->i = start->i;
 	j = WIDTH;
 	while (j > 0)
@@ -68,18 +62,7 @@ void	drow_julia(t_data *img, t_complex *c, double magnification_rate)
 		{
 			z->r = pixel_count->r;
 			z->i = pixel_count->i;
-			k = 0;
-			while (k < JULIA_REPEAT)
-			{
-				comp_square(z, tmp);
-				comp_add(tmp, c, z);
-				if (z->r * z->r + z->i * z->i > E)
-					break;
-				k++;
-			}
-			if ( k > 255 )
-				k = 255;
-			result = init_color(k, k, k);
+			result = julia(c, z);
 			my_mlx_pixel_put(img, i, j, ft_rgb(result));
 			free(result);
 			pixel_count->r += dx;
@@ -93,9 +76,6 @@ void	drow_julia(t_data *img, t_complex *c, double magnification_rate)
 	free(end);
 	free(pixel_count);
 	free(z);
-	free(tmp);
-	return ;
-	(void)magnification_rate;
 }
 
 void	plot_julia(t_complex *c)
