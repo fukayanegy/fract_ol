@@ -6,11 +6,11 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:41:49 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/01 17:57:08 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:11:40 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../headers/fract_ol.h"
+#include "../../headers/fract_ol.h"
 
 void	init_image(t_data *img)
 {

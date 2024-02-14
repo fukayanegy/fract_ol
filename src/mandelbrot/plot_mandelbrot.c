@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
+/*   plot_mandelbrot.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 15:06:34 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 15:07:26 by etakaham         ###   ########.fr       */
+/*   Created: 2024/02/14 15:17:14 by etakaham          #+#    #+#             */
+/*   Updated: 2024/02/14 17:15:02 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/fract_ol.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	plot_mandelbrot(void)
 {
-	char	*dst;
+	t_data	*img;
 
-	dst = data->mlx_data_addr +
-		(y * data->size_line + x * (data->bits_per_pixel / 8));
-	*(unsigned int *) dst = color;
-	return ;
+	img = init_mlx_data(true);
+	img->zoom_rate = 1.0;
+	drow_mandelbrot(img, img->zoom_rate);
+	mlx_hook(img->win_ptr, 2, (1L << 0), esc_key_hook, img);
+	mlx_hook(img->win_ptr, 17, (1L << 16), close_window_hook, img);
+	mlx_hook(img->win_ptr, 4, (1L << 2), mouse_hook, img);
+	mlx_loop(img->mlx_ptr);
+	free(img->mlx_ptr);
+	free(img->win_ptr);
+	free(img->img_ptr);
+	free(img->mlx_data_addr);
+	free(img);
 }

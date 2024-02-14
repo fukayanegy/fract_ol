@@ -1,4 +1,5 @@
 .git
 *.o
 README.md
+.vscode
 save/*

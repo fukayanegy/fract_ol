@@ -6,17 +6,18 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:36:01 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/01 17:33:04 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:12:17 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../headers/fract_ol.h"
+#include "../../headers/fract_ol.h"
 
 void	*init_mlx_data(bool is_mandelbrot)
 {
 	t_data	*data;
 
-	if (!(data = malloc(sizeof(*data))))
+	data = malloc(sizeof(*data));
+	if (!data)
 		exit(0);
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, WIN_NAME);

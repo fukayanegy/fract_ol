@@ -6,11 +6,11 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:39 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 13:17:56 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:35:47 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/fract_ol.h"
+#include "../../headers/fract_ol.h"
 
 static int	skip_space(const char *str)
 {
