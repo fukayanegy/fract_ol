@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 17:44:25 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/14 18:39:22 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ unsigned int	ft_rgb(t_color *color);
 int				esc_key_hook(int keycode, t_data *img);
 int				close_window_hook(int keycode, t_data *img);
 int				mouse_hook(int keycode, int x, int y, t_data *img);
+int			minimize_hook(int keycode, t_data *img);
 
 // init types
 void			*init_mlx_data(bool is_mandelbrot);
