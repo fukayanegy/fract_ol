@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 18:16:48 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 18:40:36 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/21 19:10:21 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 int	minimize_hook(int keycode, t_data *img)
 {
+	printf("======================\n");
+	printf("minimize!\n");
+	printf("img is %p\n", img);
+	printf("keycode is %d\n", keycode);
+	printf("======================\n");
+	drow_mandelbrot(img, img->zoom_rate);
+	return (1);
 	(void)keycode;
 	(void)img;
-	printf("minisize!\n");
-	return (0);
 }
