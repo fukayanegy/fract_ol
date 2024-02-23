@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:25 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/23 16:19:40 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:38:20 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ static int	check_correct_args(int argc, char **argv)
 	return (2);
 }
 
+static int	check_correct_julia_args(t_comp c)
+{
+	if (c->r < 2 && c->i > -2)
+		return (0);
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_comp	*c;
@@ -42,6 +49,8 @@ int	main(int argc, char **argv)
 	else if (args_type == 0)
 	{
 		c = init_comp(ft_atof(argv[2]), ft_atof(argv[3]));
+		if (check_correct_julia_args(c))
+			return (1);
 		plot_julia(c);
 	}
 	else if (args_type == 1)
