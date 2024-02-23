@@ -6,13 +6,13 @@
 #    By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 17:33:21 by etakaham          #+#    #+#              #
-#    Updated: 2024/02/23 16:18:48 by etakaham         ###   ########.fr        #
+#    Updated: 2024/02/23 19:22:54 by etakaham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re
 
-NAME		= fract_al
+NAME		= fractol
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 SANITIZE	= -fsanitize=address -g
