@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/23 13:14:20 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:17:38 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,10 @@ void			*init_mlx_data(bool is_mandelbrot);
 void			*init_comp(double real_part, double imaginary_part);
 void			*init_color(unsigned char r, unsigned char g, unsigned char b);
 void			init_image(t_data *img);
+
+// errors
+int				error_code_1(void);
+int				error_code_2(void);
+
 
 #endif
