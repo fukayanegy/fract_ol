@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:16:54 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 18:38:01 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:12:18 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	plot_julia(t_comp *c)
 	mlx_hook(img->win_ptr, 2, (1L << 0), esc_key_hook, img);
 	mlx_hook(img->win_ptr, 17, 0, close_window_hook, img);
 	mlx_hook(img->win_ptr, 4, (1L << 2), mouse_hook, img);
-	mlx_hook(img->win_ptr, 12, (1L << 2), minimize_hook, img);
+	mlx_loop_hook(img->mlx_ptr, drow_julia, img);
 	mlx_loop(img->mlx_ptr);
 	free(img->mlx_ptr);
 	free(img->win_ptr);

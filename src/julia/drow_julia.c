@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:13:59 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 17:30:15 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:52:46 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void	support(t_comp *s, t_comp *r, t_comp *p, t_data *img)
 	mlx_put_image_to_window(img->mlx_ptr, img->win_ptr, img->img_ptr, 0, 0);
 }
 
-void	drow_julia(t_data *img)
+int	drow_julia(t_data *img)
 {
 	t_comp		*start;
 	t_comp		*end;
@@ -99,4 +99,5 @@ void	drow_julia(t_data *img)
 	pixel_count = init_comp(0.0, 0.0);
 	support(start, render_pn, pixel_count, img);
 	free_comps(start, end, render_pn, pixel_count);
+	return (0);
 }

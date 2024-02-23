@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 18:39:22 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:52:12 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define FUNCTION_H
 
 /*mandelbrot*/
-void			drow_mandelbrot(t_data *img, double magnification_rate);
+int			drow_mandelbrot(t_data *img);
 void			plot_mandelbrot(void);
 
 /*julia*/
-void			drow_julia(t_data *img);
+int			drow_julia(t_data *img);
 void			plot_julia(t_comp *c);
 
 double			ft_atof(const char *str);

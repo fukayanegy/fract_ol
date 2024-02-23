@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:17:08 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 17:31:28 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:49:40 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	mandelbrot(t_comp *c, t_data *img, int i, int j)
 	free(tmp);
 }
 
-void	drow_mandelbrot(t_data *img, double magnification_rate)
+int	drow_mandelbrot(t_data *img)
 {
 	int		i;
 	int		j;
@@ -46,11 +46,11 @@ void	drow_mandelbrot(t_data *img, double magnification_rate)
 	i = 0;
 	while (i < WIDTH)
 	{
-		c->r = ((double)i * 4 / WIDTH - 4 / 2) * magnification_rate;
+		c->r = ((double)i * 4 / WIDTH - 4 / 2) * img->zoom_rate;
 		j = 0;
 		while (j < HEIGHT)
 		{
-			c->i = ((double)j * 4 / HEIGHT - 4 / 2) * magnification_rate;
+			c->i = ((double)j * 4 / HEIGHT - 4 / 2) * img->zoom_rate;
 			my_mlx_pixel_put(img, i, j, 0x00FFFFFF);
 			mandelbrot(c, img, i, j);
 			j++;
@@ -59,4 +59,5 @@ void	drow_mandelbrot(t_data *img, double magnification_rate)
 	}
 	mlx_put_image_to_window(img->mlx_ptr, img->win_ptr, img->img_ptr, 0, 0);
 	free(c);
+	return (0);
 }
