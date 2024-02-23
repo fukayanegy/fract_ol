@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/23 12:52:12 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:14:20 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define FUNCTION_H
 
 /*mandelbrot*/
-int			drow_mandelbrot(t_data *img);
+int				drow_mandelbrot(t_data *img);
 void			plot_mandelbrot(void);
 
 /*julia*/
-int			drow_julia(t_data *img);
+int				drow_julia(t_data *img);
 void			plot_julia(t_comp *c);
 
 double			ft_atof(const char *str);
@@ -35,7 +35,7 @@ unsigned int	ft_rgb(t_color *color);
 int				esc_key_hook(int keycode, t_data *img);
 int				close_window_hook(int keycode, t_data *img);
 int				mouse_hook(int keycode, int x, int y, t_data *img);
-int			minimize_hook(int keycode, t_data *img);
+int				minimize_hook(int keycode, t_data *img);
 
 // init types
 void			*init_mlx_data(bool is_mandelbrot);
