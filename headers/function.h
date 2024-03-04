@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/03/04 13:54:38 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:03:49 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,5 @@ void			init_image(t_data *img);
 int				error_code_1(void);
 int				error_code_2(void);
 int				error_code_3(void);
-
 
 #endif
