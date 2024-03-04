@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:25 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/26 19:18:55 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:55:53 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static int	check_correct_args(int argc, char **argv)
 
 static int	check_correct_julia_args(t_comp *c)
 {
-	if (-2 > c->r || c->r > 2)
+	if (-1 >= c->r || c->r >= 1)
 		return (1);
-	if (-1.5 > c->i || c->i > 1.5)
+	if (-1 >= c->i || c->i >= 1)
 		return (1);
 	return (0);
 }
@@ -45,14 +45,16 @@ int	main(int argc, char **argv)
 
 	args_type = check_correct_args(argc, argv);
 	if (args_type == -1)
-	{
 		plot_mandelbrot();
-	}
 	else if (args_type == 0)
 	{
 		c = init_comp(ft_atof(argv[2]), ft_atof(argv[3]));
 		if (check_correct_julia_args(c))
+		{
+			free(c);
+			error_code_3();
 			exit(1);
+		}
 		plot_julia(c);
 	}
 	else if (args_type == 1)
