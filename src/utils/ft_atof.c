@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:39 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/14 14:35:47 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:47:55 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static char	**split_fraction_str(const char *str)
 	int		counter;
 	int		i;
 
+	if (*str == '\0')
+		return (NULL);
 	result = ft_split(str, '.');
 	counter = 0;
 	while (result[counter] != NULL)

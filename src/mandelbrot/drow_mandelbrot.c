@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:17:08 by etakaham          #+#    #+#             */
-/*   Updated: 2024/03/12 17:28:27 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:30:10 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static t_color	*mandelbrot(t_comp *c)
 		i++;
 	}
 	color = init_color(i, i, i);
+	free_comps(z, new_z, tmp);
 	return (color);
 }
 
@@ -70,6 +71,7 @@ static void	support(t_comp *start, t_comp *end, t_comp *render_pn, t_data *img)
 		i--;
 	}
 	mlx_put_image_to_window(img->mlx_ptr, img->win_ptr, img->img_ptr, 0, 0);
+	free(c);
 }
 
 int	drow_mandelbrot(t_data *img)
