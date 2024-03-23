@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:39 by etakaham          #+#    #+#             */
-/*   Updated: 2024/03/20 20:47:55 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/03/23 18:09:52 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,15 @@ double	ft_atof(const char *str)
 	char	**splited_str;
 
 	index = skip_space(str);
-	is_positive = ft_isdigit(str[index]);
-	if (!is_positive)
+	is_positive = !(str[index] == '-');
+	if (!ft_isdigit(str[index]))
 		index++;
 	splited_str = split_fraction_str(&str[index]);
 	if (splited_str == NULL)
+	{
+		error_code_3();
 		exit(1);
+	}
 	result = ft_atoi(splited_str[0]) + calculate_decimal(splited_str[1]);
 	if (is_positive == false)
 		result *= -1;

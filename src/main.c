@@ -6,11 +6,29 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:25 by etakaham          #+#    #+#             */
-/*   Updated: 2024/03/04 13:55:53 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/03/23 18:01:59 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fract_ol.h"
+
+static int	is_decimal_string(const char *str)
+{
+	int	i;
+
+	if (!(str[0] == 43 || str[0] == 45 || (48 <= str[0] && str[0] <= 57)))
+		return (1);
+	i = 1;
+	while (str[i])
+	{
+		if (!(('0' <= str[i] && str[i] <= '9') || str[i] == '.'))
+			return (1);
+		if (ft_count(str, '.') > 1)
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 static int	check_correct_args(int argc, char **argv)
 {
@@ -24,7 +42,13 @@ static int	check_correct_args(int argc, char **argv)
 	else if (argc == 4)
 	{
 		if (ft_strlen(argv[1]) == 5 && !ft_strncmp(argv[1], "julia", 5))
+		{
+			if (is_decimal_string(argv[2]))
+				return (1);
+			if (is_decimal_string(argv[3]))
+				return (1);
 			return (0);
+		}
 	}
 	return (2);
 }
@@ -49,6 +73,7 @@ int	main(int argc, char **argv)
 	else if (args_type == 0)
 	{
 		c = init_comp(ft_atof(argv[2]), ft_atof(argv[3]));
+		printf("r : %f\ni : %f\n", c->r, c->i);
 		if (check_correct_julia_args(c))
 		{
 			free(c);
