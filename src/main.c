@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:25 by etakaham          #+#    #+#             */
-/*   Updated: 2024/03/23 18:01:59 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/03/24 15:17:38 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ static int	check_correct_args(int argc, char **argv)
 
 static int	check_correct_julia_args(t_comp *c)
 {
-	if (-1 >= c->r || c->r >= 1)
+	if (-1.5 >= c->r || c->r >= 1.5)
 		return (1);
-	if (-1 >= c->i || c->i >= 1)
+	if (-1.5 >= c->i || c->i >= 1.5)
 		return (1);
 	return (0);
 }

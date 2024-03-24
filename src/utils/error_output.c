@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:56:24 by etakaham          #+#    #+#             */
-/*   Updated: 2024/03/23 15:49:01 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/03/24 15:18:02 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	error_code_3(void)
 	ft_putstr_fd("\033[02m", 1);
 	ft_putstr_fd("\033[32m", 1);
 	ft_putstr_fd("julia parameters range is\n", 2);
-	ft_putstr_fd("-1 < para < 1\n", 2);
+	ft_putstr_fd("-1.5 < para < 1.5\n", 2);
 	ft_putstr_fd("\033[02m", 1);
 	return (1);
 }
