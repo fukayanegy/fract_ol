@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:13:59 by etakaham          #+#    #+#             */
-/*   Updated: 2024/02/23 12:52:46 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/03/24 15:11:43 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	support(t_comp *s, t_comp *r, t_comp *p, t_data *img)
 		while (i < HEIGHT)
 		{
 			color_signal = tmp_name(p, img->c);
-			my_mlx_pixel_put(img, i, j, color_signal);
+			my_mlx_pixel_put(img, i, WIDTH - j, color_signal);
 			p->r += r->r;
 			i++;
 		}
