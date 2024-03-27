@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:33:45 by etakaham          #+#    #+#             */
-/*   Updated: 2024/03/23 16:10:19 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/03/27 15:09:56 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			comp_square(t_comp *comp, t_comp *squared_comp);
 /*utils*/
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
 unsigned int	ft_rgb(t_color *color);
-size_t	ft_count(const char *str, char c);
+size_t			ft_count(const char *str, char c);
 
 // hook function
 int				esc_key_hook(int keycode, t_data *img);
