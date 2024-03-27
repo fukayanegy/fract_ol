@@ -6,7 +6,7 @@
 /*   By: etakaham <etakaham@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:32:25 by etakaham          #+#    #+#             */
-/*   Updated: 2024/03/24 15:17:38 by etakaham         ###   ########.fr       */
+/*   Updated: 2024/03/27 15:14:52 by etakaham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int	main(int argc, char **argv)
 	else if (args_type == 0)
 	{
 		c = init_comp(ft_atof(argv[2]), ft_atof(argv[3]));
-		printf("r : %f\ni : %f\n", c->r, c->i);
 		if (check_correct_julia_args(c))
 		{
 			free(c);
